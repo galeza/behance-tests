@@ -7,3 +7,4 @@
 .history
 .DS_Store
 /cypress/reports
+/cypress/logs
