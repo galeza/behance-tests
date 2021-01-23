@@ -5,6 +5,10 @@ class Search {
   searchInput = "input.SearchTypeahead-searchInput-1qk";
   searchSuggestions = "ul.SearchTypeahead-suggestions-2lD";
 
+  visit() {
+    cy.visit("");
+  }
+
   getSearchIcon() {
     return cy.get(this.searchIcon);
   }

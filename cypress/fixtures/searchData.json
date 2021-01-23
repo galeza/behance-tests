@@ -1,0 +1,16 @@
+{
+  "searchSuggestions": [
+    "Sort & filter all:",
+    "Projects",
+    "Images",
+    "People",
+    "Moodboards"
+  ],
+  "searchTabNames": ["Projects", "Images", "People", "Moodboards"],
+  "searchTabHrefs": [
+    "/search/projects",
+    "/search/images",
+    "/search/users",
+    "/search/moodboards"
+  ]
+}
