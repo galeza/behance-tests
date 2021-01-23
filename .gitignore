@@ -2,7 +2,9 @@
 **/node_modules
 .idea/
 .vscode
-cypresse2e/cypress/screenshots/
-cypresse2e/cypress/videos
+/cypress/screenshots/
+/cypress/videos
 .history
 .DS_Store
+/cypress/reports
+/cypress/logs
