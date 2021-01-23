@@ -9,6 +9,10 @@ class Search {
     cy.visit("");
   }
 
+  visitSpecificSearch(url) {
+    cy.visit(url);
+  }
+
   getSearchIcon() {
     return cy.get(this.searchIcon);
   }
