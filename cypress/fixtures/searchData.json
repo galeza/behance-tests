@@ -12,5 +12,6 @@
     "/search/images",
     "/search/users",
     "/search/moodboards"
-  ]
+  ],
+  "placeholder": "Search Behance"
 }
