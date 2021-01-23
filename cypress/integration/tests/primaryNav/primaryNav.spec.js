@@ -1,4 +1,5 @@
 import PrimaryNav from "../../../elements/pages/primaryNav";
+import primaryNavData from "../../../fixtures/primaryNav.json";
 
 describe("Primary navigation", () => {
   const primaryNav = new PrimaryNav();
@@ -15,48 +16,44 @@ describe("Primary navigation", () => {
       validatePrimaryNav(
         primaryNav.getDiscover(),
         "href",
-        "/galleries?tracking_source=nav20",
+        primaryNavData.validatePrimaryNavHrefs[0],
         "h3",
-        "Discover",
+        primaryNavData.validatePrimaryNavNames[0],
       );
       validatePrimaryNav(
         primaryNav.getLivestreams(),
         "href",
-        "/live?tracking_source=nav20",
+        primaryNavData.validatePrimaryNavHrefs[1],
         "h3",
-        "Livestreams",
+        primaryNavData.validatePrimaryNavNames[1],
       );
       validatePrimaryNav(
         primaryNav.getJobs(),
         "href",
-        "/joblist?tracking_source=nav20",
+        primaryNavData.validatePrimaryNavHrefs[2],
         "h3",
-        "Jobs",
+        primaryNavData.validatePrimaryNavNames[2],
       );
     });
     it("Primary Navigation items (Log In, Sign Up, Adobe) are visible and contain text", () => {
       validatePrimaryNavButtons(
         primaryNav.getSignInButton(),
         "data-signin-from",
-        "Header",
+        primaryNavData.loginAttrValue,
         "div",
-        "Log In",
+        primaryNavData.login,
       );
       validatePrimaryNavButtons(
         primaryNav.getSignUpButton(),
         "data-signup-from",
-        "updated_2020_navigation_signup",
+        primaryNavData.signupAttrValue,
         "div",
-        "Sign Up",
+        primaryNavData.signup,
       );
       primaryNav
         .getAdobeLink()
         .find("a")
-        .should(
-          "have.attr",
-          "href",
-          "https://www.adobe.com/creativecloud.html?promoid=MYYBRZ1T&mv=other",
-        );
+        .should("have.attr", "href", primaryNavData.adobeHref);
     });
 
     function validatePrimaryNav(getMethod, attr, attrValue, element, text) {

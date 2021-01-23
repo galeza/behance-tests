@@ -1,0 +1,13 @@
+{
+  "validatePrimaryNavHrefs": [
+    "/galleries?tracking_source=nav20",
+    "/live?tracking_source=nav20",
+    "/joblist?tracking_source=nav20"
+  ],
+  "validatePrimaryNavNames": ["Discover", "Livestreams", "Jobs"],
+  "loginAttrValue": "Header",
+  "login": "Log In",
+  "signupAttrValue": "updated_2020_navigation_signup",
+  "signup": "Sign Up",
+  "adobeHref": "https://www.adobe.com/creativecloud.html?promoid=MYYBRZ1T&mv=other"
+}
