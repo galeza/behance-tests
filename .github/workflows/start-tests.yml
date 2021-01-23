@@ -9,10 +9,10 @@ jobs:
       - uses: cypress-io/github-action@v2
       - run: npm run cypress
 
-      - uses: actions/upload-artifact@v1
-        with:
-          name: screenshots-in-electron
-          path: /cypress/screenshots
+      # - uses: actions/upload-artifact@v1
+      #   with:
+      #     name: screenshots-in-electron
+      #     path: /cypress/screenshots
 
       - uses: actions/upload-artifact@v1
         with:
