@@ -1,13 +1,20 @@
-name: E2E on Chrome headless
+name: E2E on Electron
 on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04
-    name: E2E on Chrome headless
+    name: E2E on Electron
     steps:
       - uses: actions/checkout@v1
       - uses: cypress-io/github-action@v2
+      - run: npm run cypress
+
+      - uses: actions/upload-artifact@v1
         with:
-          browser: chrome
-          headless: true
-          start: npm run cypress
+          name: screenshots-in-electron
+          path: /cypress/screenshots
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: report-in-electron
+          path: /cypress/reports
