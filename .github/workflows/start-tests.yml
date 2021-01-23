@@ -10,3 +10,4 @@ jobs:
         with:
           browser: chrome
           headless: true
+          start: npm run cypress

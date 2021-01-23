@@ -5,8 +5,8 @@
   "scripts": {
     "clean-reports": "rm -rf cypress/reports",
     "test": "npx cypress run",
-    "merge-report": "npx mochawesome-merge cypress/reports/separate-reports/*.json  > cypress/reports/full_report.json",
-    "generate-report": "npx mochawesome-report-generator --reportDir cypress/reports cypress/reports/full_report.json",
+    "merge-report": "npx mochawesome-merge --reportDir cypress/reports/separate-reports > cypress/reports/report.json",
+    "generate-report": "npx mochawesome-report-generator --reportDir cypress/reports cypress/reports/report.json",
     "after:tests": "npm run merge-report; npm run generate-report",
     "cypress": "npm run clean-reports; npm run test; npm run after:tests"
   },
