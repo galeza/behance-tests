@@ -1,7 +1,7 @@
 import Search from "../../../elements/pages/search";
 import SearchTabNavigation from "../../../elements/pages/searchTabNavigation";
 
-describe("Search functionality", () => {
+describe("Search functionality icon and input", () => {
   const search = new Search();
   var searchSuggestions;
 
@@ -23,6 +23,13 @@ describe("Search functionality", () => {
             expect($el).to.have.text(searchSuggestions[index]);
           });
       });
+    });
+
+    it("Search input contains placeholder 'Search Behance'", () => {
+      search
+        .getSearchInput()
+        .should("have.attr", "placeholder", "Search Behance")
+        .and("be.visible");
     });
   });
 });
