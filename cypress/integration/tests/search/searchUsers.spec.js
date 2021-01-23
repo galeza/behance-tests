@@ -4,6 +4,7 @@ import Content from "../../../elements/pages/content";
 describe("Search user", () => {
   const search = new Search();
   const content = new Content();
+  const userUrl = "/search/users/";
   var searchUserFistName;
   var searchUserLastName;
   var errorNoRecord;
@@ -17,7 +18,7 @@ describe("Search user", () => {
       cy.fixture("errors").then((data) => {
         errorNoRecord = data.thereIsNoRecordError;
       });
-      search.visitSpecificSearch("/search/users/");
+      search.visitSpecificSearch(userUrl);
     });
     it("When searching for a particular user, user record is found and displayed in the content list", () => {
       enterText(

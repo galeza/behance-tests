@@ -4,12 +4,14 @@ import SearchTabNavigation from "../../../elements/pages/searchTabNavigation";
 describe("Search functionality icon and input", () => {
   const search = new Search();
   var searchSuggestions;
+  var searchPlaceholder;
 
   context("User opens Behance.net and see search functionality", () => {
     before(() => {
       search.visit();
       cy.fixture("searchData").then((data) => {
         searchSuggestions = data.searchSuggestions;
+        searchPlaceholder = data.placeholder;
       });
     });
 
@@ -28,7 +30,7 @@ describe("Search functionality icon and input", () => {
     it("Search input contains placeholder 'Search Behance'", () => {
       search
         .getSearchInput()
-        .should("have.attr", "placeholder", "Search Behance")
+        .should("have.attr", "placeholder", searchPlaceholder)
         .and("be.visible");
     });
   });
