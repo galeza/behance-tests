@@ -60,7 +60,7 @@ describe("Location Filter", () => {
     it("User can select Country from the drop down menu. After selecting clear button is visible and country text is entered", () => {
       filter.getFilterLocation().click();
       enterCountryData(
-        locationSelectMenu.getCoutryRegionDropDown(),
+        locationSelectMenu.getCountryRegionInput(),
         countryPolandEnterLocation,
       );
       enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
@@ -73,7 +73,7 @@ describe("Location Filter", () => {
     it("After selecting clear button, Location Menu is not visible", () => {
       filter.getFilterLocation().click();
       enterCountryData(
-        locationSelectMenu.getCoutryRegionDropDown(),
+        locationSelectMenu.getCountryRegionInput(),
         countryPolandEnterLocation,
       );
       enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
@@ -84,24 +84,24 @@ describe("Location Filter", () => {
     it("After selecting United States from country dropdown menu, State is visible", () => {
       filter.getFilterLocation().click();
       enterCountryData(
-        locationSelectMenu.getCoutryRegionDropDown(),
+        locationSelectMenu.getCountryRegionInput(),
         countryUSEnterLocation,
       );
-      locationSelectMenu
-        .getStateLabel()
+      locationSelectMenu.getStateLabel().as("state");
+      cy.get("@state")
         .should("be.visible")
         .and("contains.text", locationSelect.StateLabel);
     });
     it("After selecting country dropdown menu, user can click Apply button", () => {
       filter.getFilterLocation().click();
       enterCountryData(
-        locationSelectMenu.getCoutryRegionDropDown(),
+        locationSelectMenu.getCountryRegionInput(),
         countryPolandEnterLocation,
       );
       locationSelectMenu.getApplyButton().click();
     });
     function enterCountryData(getMethod, country) {
-      getMethod.find("input").click().type(country);
+      getMethod.click().type(country);
     }
     function enterCityData(getMethod, city) {
       getMethod.type(city);
