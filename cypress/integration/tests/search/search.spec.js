@@ -1,5 +1,5 @@
-import Search from "../../../elements/pages/search";
-import SearchTabNavigation from "../../../elements/pages/searchTabNavigation";
+import Search from "../../../elements/pages/search/search";
+import SearchTabNavigation from "../../../elements/pages/search/searchTabNavigation";
 
 describe("Search functionality icon and input", () => {
   const search = new Search();

@@ -1,11 +1,15 @@
 import Filter from "../../../elements/pages/filters/filter";
-import filterLocation from "../../../fixtures/filters/filter.json";
-import locationSelect from "../../../fixtures/filters/locationSelect.json";
+import filterLocation from "../../../fixtures/filter.json";
+import locationSelect from "../../../fixtures/locationSelect.json";
 import LocationSelectMenu from "../../../elements/pages/filters/locationSelectMenu";
 
 describe("Location Filter", () => {
   const filter = new Filter();
   const locationSelectMenu = new LocationSelectMenu();
+  const countryPolandEnterLocation = "Poland{enter}";
+  const cityPolandEnterLocation = "Krakow{enter}";
+  const countryUSEnterLocation = "United States{enter}";
+  const countryName = "Poland";
 
   context("User filters using Location filter", () => {
     beforeEach(() => {
@@ -57,22 +61,22 @@ describe("Location Filter", () => {
       filter.getFilterLocation().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
-        "Poland{enter}",
+        countryPolandEnterLocation,
       );
-      enterCityData(locationSelectMenu.getCityInput(), "Krakow{enter}");
+      enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
       locationSelectMenu
         .getCoutryRegionDropDown()
         .find("span")
-        .should("contains.text", "Poland");
+        .should("contains.text", countryName);
       locationSelectMenu.getClearFilter().should("be.visible");
     });
     it("After selecting clear button, Location Menu is not visible", () => {
       filter.getFilterLocation().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
-        "Poland{enter}",
+        countryPolandEnterLocation,
       );
-      enterCityData(locationSelectMenu.getCityInput(), "Krakow{enter}");
+      enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
 
       locationSelectMenu.getClearFilter().should("be.visible").click();
       locationSelectMenu.getLocationSelectMenu().should("not.be.visible");
@@ -81,7 +85,7 @@ describe("Location Filter", () => {
       filter.getFilterLocation().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
-        "United States{enter}",
+        countryUSEnterLocation,
       );
       locationSelectMenu
         .getStateLabel()
@@ -92,12 +96,12 @@ describe("Location Filter", () => {
       filter.getFilterLocation().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
-        "Poland{enter}",
+        countryPolandEnterLocation,
       );
       locationSelectMenu.getApplyButton().click();
     });
     function enterCountryData(getMethod, country) {
-      getMethod.click().type(country);
+      getMethod.find("input").click().type(country);
     }
     function enterCityData(getMethod, city) {
       getMethod.type(city);
