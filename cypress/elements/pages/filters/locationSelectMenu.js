@@ -5,6 +5,7 @@ class LocationSelectMenu {
     "div[class^=LocationSelectMenu-locationSelectMenu] div:nth-child(1) label.Select-label-3Ol";
   coutryRegionDropDown = "div.vs__selected-options";
   countryRegionInput = "input#select-100";
+  countryRegionSelectedOption = "div.vs__selected-options";
   stateLabel =
     "div[class^=LocationSelectMenu-locationSelectMenu] div:nth-child(2) label.Select-label-3Ol";
   stateDropDown = "div.dropdown.v-select.open.single";
@@ -32,6 +33,9 @@ class LocationSelectMenu {
   }
   getCountryRegionInput() {
     return cy.get(this.countryRegionInput);
+  }
+  getCountryRegionSelectedOption() {
+    return cy.get(this.countryRegionSelectedOption);
   }
   getStateLabel() {
     return cy.get(this.stateLabel);

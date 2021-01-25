@@ -59,18 +59,14 @@ describe("Location Filter", () => {
     });
     it("User can select Country from the drop down menu. After selecting clear button is visible and country text is entered", () => {
       filter.getFilterLocation().click();
-      locationSelectMenu.getCoutryRegionDropDown().click();
-      locationSelectMenu.getCountryRegionInput().as("countryRegionInput");
-      cy.get("@countryRegionInput")
-        .click({ force: true })
-        .should("contains.class", "focus-visible");
+      locationSelectMenu.getCountryRegionSelectedOption().click();
       enterCountryData(
-        cy.get("@countryRegionInput"),
+        locationSelectMenu.getCountryRegionInput(),
         countryPolandEnterLocation,
       );
       enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
       locationSelectMenu
-        .getCoutryRegionDropDown()
+        .getCountryRegionSelectedOption()
         .find("span")
         .should("contains.text", countryName);
       locationSelectMenu.getClearFilter().should("be.visible");
@@ -109,7 +105,7 @@ describe("Location Filter", () => {
       locationSelectMenu.getApplyButton().click();
     });
     function enterCountryData(getMethod, country) {
-      getMethod.type(country);
+      getMethod.click().type(country);
     }
     function enterCityData(getMethod, city) {
       getMethod.type(city);
