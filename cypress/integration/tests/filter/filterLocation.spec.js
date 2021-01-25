@@ -59,9 +59,9 @@ describe("Location Filter", () => {
     });
     it("User can select Country from the drop down menu. After selecting clear button is visible and country text is entered", () => {
       filter.getFilterLocation().click();
-      locationSelectMenu.getCountryRegionSelectedOption().click();
+      locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
-        locationSelectMenu.getCountryRegionInput(),
+        locationSelectMenu.getCoutryRegionDropDown(),
         countryPolandEnterLocation,
       );
       enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
@@ -75,7 +75,7 @@ describe("Location Filter", () => {
       filter.getFilterLocation().click();
       locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
-        locationSelectMenu.getCountryRegionInput(),
+        locationSelectMenu.getCoutryRegionDropDown(),
         countryPolandEnterLocation,
       );
       enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
@@ -87,7 +87,7 @@ describe("Location Filter", () => {
       filter.getFilterLocation().click();
       locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
-        locationSelectMenu.getCountryRegionInput(),
+        locationSelectMenu.getCoutryRegionDropDown(),
         countryUSEnterLocation,
       );
       locationSelectMenu.getStateLabel().as("state");
@@ -99,7 +99,7 @@ describe("Location Filter", () => {
       filter.getFilterLocation().click();
       locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
-        locationSelectMenu.getCountryRegionInput(),
+        locationSelectMenu.getCoutryRegionDropDown(),
         countryPolandEnterLocation,
       );
       locationSelectMenu.getApplyButton().click();
