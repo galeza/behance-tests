@@ -69,9 +69,9 @@ describe("Location Filter", () => {
         .find("span")
         .should("contains.text", countryName);
       locationSelectMenu.getClearFilter().should("be.visible");
-      cy.get(".LocationSelectMenu-locationSelectMenu-3uG").matchImageSnapshot(
-        "LocationSelectMenu",
-      );
+      // cy.get(".LocationSelectMenu-locationSelectMenu-3uG").matchImageSnapshot(
+      //   "LocationSelectMenu",
+      //);
     });
     it("After selecting clear button, Location Menu is not visible", () => {
       filter.getFilterLocation().click();
