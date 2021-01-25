@@ -54,7 +54,7 @@ describe("Search user", () => {
     });
 
     function enterText(getMethod, text) {
-      getMethod.clear().type(text).type("{downarrow}{enter}");
+      getMethod.clear().type(text + "{downarrow}{enter}");
     }
   });
 });
