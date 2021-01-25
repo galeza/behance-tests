@@ -6,7 +6,7 @@ import LocationSelectMenu from "../../../elements/pages/filters/locationSelectMe
 describe("Location Filter", () => {
   const filter = new Filter();
   const locationSelectMenu = new LocationSelectMenu();
-  const countryPolandEnterLocation = "Poland{enter}";
+  const countryPolandEnterLocation = "Poland{downarrow}{enter}";
   const cityPolandEnterLocation = "Krakow{enter}";
   const countryUSEnterLocation = "United States{enter}";
   const countryName = "Poland";
@@ -59,21 +59,22 @@ describe("Location Filter", () => {
     });
     it("User can select Country from the drop down menu. After selecting clear button is visible and country text is entered", () => {
       filter.getFilterLocation().click();
-      locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
         countryPolandEnterLocation,
       );
       enterCityData(locationSelectMenu.getCityInput(), cityPolandEnterLocation);
       locationSelectMenu
-        .getCountryRegionSelectedOption()
+        .getCoutryRegionDropDown()
         .find("span")
         .should("contains.text", countryName);
       locationSelectMenu.getClearFilter().should("be.visible");
+      // cy.get(".LocationSelectMenu-locationSelectMenu-3uG").matchImageSnapshot(
+      //   "LocationSelectMenu",
+      //);
     });
     it("After selecting clear button, Location Menu is not visible", () => {
       filter.getFilterLocation().click();
-      locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
         countryPolandEnterLocation,
@@ -85,7 +86,6 @@ describe("Location Filter", () => {
     });
     it("After selecting United States from country dropdown menu, State is visible", () => {
       filter.getFilterLocation().click();
-      locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
         countryUSEnterLocation,
@@ -97,7 +97,6 @@ describe("Location Filter", () => {
     });
     it("After selecting country dropdown menu, user can click Apply button", () => {
       filter.getFilterLocation().click();
-      locationSelectMenu.getCoutryRegionDropDown().click();
       enterCountryData(
         locationSelectMenu.getCoutryRegionDropDown(),
         countryPolandEnterLocation,
@@ -105,10 +104,14 @@ describe("Location Filter", () => {
       locationSelectMenu.getApplyButton().click();
     });
     function enterCountryData(getMethod, country) {
-      getMethod.click().type(country);
+      if (Cypress.browser.name === "chrome" && Cypress.browser.isHeadless) {
+        getMethod.click().find("input").focus().type(country);
+      } else {
+        getMethod.click().find("input").click().type(country);
+      }
     }
     function enterCityData(getMethod, city) {
-      getMethod.type(city);
+      getMethod.click().type(city);
     }
   });
 });
