@@ -1,9 +1,11 @@
 import Search from "../../../elements/pages/search/search";
 import Content from "../../../elements/pages/content";
+import SearchTabItems from "../../../elements/pages/navigation/searchTabItems";
 
 describe("Search user", () => {
   const search = new Search();
   const content = new Content();
+  const searchTabItems = new SearchTabItems();
   const userUrl = "/search/users/";
   var searchUserFistName;
   var searchUserLastName;
@@ -44,8 +46,15 @@ describe("Search user", () => {
         .find("h3")
         .should("contain.text", errorNoRecord);
     });
+    it("When searching for people, tab item People is highlighted", () => {
+      searchTabItems
+        .getPeopleItem()
+        .invoke("attr", "class")
+        .should("match", /active/);
+    });
+
     function enterText(getMethod, text) {
-      getMethod.clear().type(text).type("{downarrow}{enter}");
+      getMethod.clear().type(text + "{downarrow}{enter}");
     }
   });
 });
