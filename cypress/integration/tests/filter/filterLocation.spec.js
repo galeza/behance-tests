@@ -62,7 +62,7 @@ describe("Location Filter", () => {
       locationSelectMenu.getCoutryRegionDropDown().click();
       locationSelectMenu.getCountryRegionInput().as("countryRegionInput");
       cy.get("@countryRegionInput")
-        .click()
+        .click({ force: true })
         .should("contains.class", "focus-visible");
       enterCountryData(
         cy.get("@countryRegionInput"),
