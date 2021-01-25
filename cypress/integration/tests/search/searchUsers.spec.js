@@ -46,10 +46,11 @@ describe("Search user", () => {
         .find("h3")
         .should("contain.text", errorNoRecord);
     });
-    it.only("When searching for people, tab item People is highlighted", () => {
+    it("When searching for people, tab item People is highlighted", () => {
       searchTabItems
         .getPeopleItem()
-        .should("contains.class", "router-link-exact-active");
+        .invoke("attr", "class")
+        .should("match", /active/);
     });
 
     function enterText(getMethod, text) {
