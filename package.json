@@ -4,7 +4,7 @@
   "description": "Interview repo",
   "scripts": {
     "clean-reports": "rm -rf cypress/reports",
-    "test": "npx cypress run",
+    "test": "npx cypress run --browser chrome --headless",
     "merge-report": "npx mochawesome-merge --reportDir cypress/reports/separate-reports > cypress/reports/report.json",
     "generate-report": "npx mochawesome-report-generator --reportDir cypress/reports cypress/reports/report.json",
     "after:tests": "npm run merge-report; npm run generate-report",

@@ -1,4 +1,4 @@
-import Search from "../../../elements/pages/search";
+import Search from "../../../elements/pages/search/search";
 import Content from "../../../elements/pages/content";
 
 describe("Search user", () => {

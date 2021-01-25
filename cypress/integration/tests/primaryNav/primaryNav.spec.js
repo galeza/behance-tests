@@ -1,4 +1,4 @@
-import PrimaryNav from "../../../elements/pages/primaryNav";
+import PrimaryNav from "../../../elements/pages/navigation/primaryNav";
 import primaryNavData from "../../../fixtures/primaryNav.json";
 
 describe("Primary navigation", () => {
