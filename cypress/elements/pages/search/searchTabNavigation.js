@@ -2,7 +2,7 @@ class SearchTabNavigation {
   constructor() {}
   searchProjectsTab = "a[href='/search/projects']";
   searchImagesTab = "a[href='/search/images']";
-  searchUsersTab = "a[href='/search/users']";
+  searchUsersTab = "a.e2e-Search-users-tab";
   searchMoodboardsTab = "a[href='/search/moodboards']";
   searchTabList = "ul[class^='Search-tabList']";
 
