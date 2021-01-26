@@ -46,25 +46,25 @@ Git:
 
 Cypress:
 
-- npm install cypress --save-dev
+- `npm install cypress --save-dev`
 
 **Modules**
 
 cypress cypress-failed-log:
 
-- npm install --save-dev cypress cypress-failed-log
+- `npm install --save-dev cypress cypress-failed-log`
 
 cypress-image-snapshot:
 
-- npm install --save-dev cypress-image-snapshot
+- `npm install --save-dev cypress-image-snapshot`
 
 mochawesome, mochawesome-merge, mochawesome-report-generator
 
-- npm i --D mocha mochawesome mochawesome-merge mochawesome-report-generator
+- `npm i --D mocha mochawesome mochawesome-merge mochawesome-report-generator`
 
 prettier, pretty-quick
 
-- npm install --save-dev prettier pretty-quick
+- `npm install --save-dev prettier pretty-quick`
 
 Clone repository using `git clone` and run `npm install`
 
@@ -98,3 +98,7 @@ Report.html is genarated using mochawesome, mochawesome-merge, mochawesome-repor
 
 Locally I was using a module - cypress-image-snapshot. Test was added in the filterLocation.spec.js. Snapshots folder contains images to compare.
 Image comparison failed on github actions so code is commented out and need further investigation how (and if it's possible) to use this plugin with CI/CD.
+
+# TODO
+
+Vue developer tools are disable for production site. One of requests POST \log is failing. For Cypress - uncaught:exception was added to ignore this JS exceptions.
