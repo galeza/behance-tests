@@ -1,11 +1,11 @@
 import Search from "../../../elements/pages/search/search";
 import Content from "../../../elements/pages/content";
-import SearchTabItems from "../../../elements/pages/navigation/searchTabItems";
+import SearchTabNavigation from "../../../elements/pages/search/searchTabNavigation";
 
 describe("Search user", () => {
   const search = new Search();
   const content = new Content();
-  const searchTabItems = new SearchTabItems();
+  const searchTabNavigation = new SearchTabNavigation();
   const userUrl = "/search/users/";
   var searchUserFistName;
   var searchUserLastName;
@@ -47,8 +47,8 @@ describe("Search user", () => {
         .should("contain.text", errorNoRecord);
     });
     it("When searching for people, tab item People is highlighted", () => {
-      searchTabItems
-        .getPeopleItem()
+      searchTabNavigation
+        .getSearchUsersTab()
         .invoke("attr", "class")
         .should("match", /active/);
     });
