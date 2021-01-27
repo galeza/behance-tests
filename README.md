@@ -101,4 +101,4 @@ Image comparison failed on github actions so code is commented out and need furt
 
 # TODO
 
-Vue developer tools are disable for production site. One of requests POST \log is failing. For Cypress - uncaught:exception was added to ignore this JS exceptions.
+Vue developer tools are disable for production site. One of requests POST \log is failing. For Cypress - uncaught:exception was added to ignore this JS exception.
