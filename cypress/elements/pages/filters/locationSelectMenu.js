@@ -1,14 +1,12 @@
 class LocationSelectMenu {
   constructor() {}
   locationSelectMenu = "div[class^=LocationSelectMenu-locationSelectMenu]";
-  countryRegionLabel =
-    "div[class^=LocationSelectMenu-locationSelectMenu] div:nth-child(1) label.Select-label-3Ol";
+  countryRegionLabel = ".e2e-LocationFilter-panel > div:nth-child(1) > label";
   coutryRegionDropDown = "div.vs__selected-options";
   countryRegionInput = "input#select-100";
   countryRegionSingleMenu =
     "div.dropdown.v-select.single.searchable.Select-vueSelectInput-1dM";
-  stateLabel =
-    "div[class^=LocationSelectMenu-locationSelectMenu] div:nth-child(2) label.Select-label-3Ol";
+  stateLabel = "[for='select-1002']";
   stateDropDown = "div.dropdown.v-select.open.single";
   cityLabel = "label.LocationSelectMenu-label-ro2";
   cityInput = "div#autosuggest input";
