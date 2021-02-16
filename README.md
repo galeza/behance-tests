@@ -76,7 +76,7 @@ Tests run using Chrome headless. At the end report is generated.
 
 ![Screenshot](./readmeImages/run_tests_npm.png)
 
-2. `node_modules/.bin/cypress`
+2. `node_modules/.bin/cypress open`
 
 Run tests on Chrome
 
